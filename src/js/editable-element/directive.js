@@ -36,7 +36,7 @@ function($parse, $compile, editableThemes, $rootScope, $document, editableContro
         // element wrapped by form
         if(ctrl[1]) {
           eFormCtrl = ctrl[1];
-          hasForm = true;
+          hasForm = !$document[0].forms[0].attributes.getNamedItem('editable-form-disabled');
         } else if(attrs.eForm) { // element not wrapped by <form>, but we hane `e-form` attr
           var getter = $parse(attrs.eForm)(scope);
           if(getter) { // form exists in scope (above), e.g. editable column

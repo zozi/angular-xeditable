@@ -1,7 +1,7 @@
 /*!
 angular-xeditable - 0.1.8
 Edit-in-place for angular.js
-Build date: 2014-07-01 
+Build date: 2014-07-11 
 */
 /**
  * Angular-xeditable module 
@@ -505,7 +505,7 @@ angular.module('xeditable').factory('editableController',
       if(self.single) {
         self.editorEl.attr('editable-form', '$form');
         // transfer `blur` to form
-        self.editorEl.attr('blur', self.attrs.blur || (self.buttons === 'no' ? 'cancel' : editableOptions.blurElem));
+        self.editorEl.attr('blur', self.attrs.blur || editableOptions.blurElem);
       }
 
       //apply `postrender` method of theme

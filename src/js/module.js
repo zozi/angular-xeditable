@@ -49,6 +49,14 @@ angular.module('xeditable', [])
    * @var {string} activate
    * @memberOf editable-options
    */
-  activate: 'focus'
+  activate: 'focus',
+
+  /**
+   * Whether or not to submit the form automatically when the input element blurs.  Default is false.
+   *
+   * @var {boolean} propagateElementBlur
+   * @memberOf editable-options
+   */
+  propagateElementBlur: false
 
 });

@@ -1,7 +1,7 @@
 /*!
 angular-xeditable - 0.1.8
 Edit-in-place for angular.js
-Build date: 2014-07-11 
+Build date: 2014-07-15 
 */
 /**
  * Angular-xeditable module 
@@ -54,7 +54,15 @@ angular.module('xeditable', [])
    * @var {string} activate
    * @memberOf editable-options
    */
-  activate: 'focus'
+  activate: 'focus',
+
+  /**
+   * Whether or not to submit the form automatically when the input element blurs.  Default is false.
+   *
+   * @var {boolean} propagateElementBlur
+   * @memberOf editable-options
+   */
+  propagateElementBlur: false
 
 });
 /*
@@ -605,6 +613,14 @@ angular.module('xeditable').factory('editableController',
           self.scope.$form._clicked = true;
         }
       });
+
+      if (editableOptions.propagateElementBlur) {
+        self.inputEl.bind('blur', function(e) {
+          self.scope.$apply(function() {
+            self.scope.$form.$submit();
+          });
+        });
+      }
     };
 
     // setWaiting

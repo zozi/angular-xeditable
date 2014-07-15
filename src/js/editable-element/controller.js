@@ -344,6 +344,14 @@ angular.module('xeditable').factory('editableController',
           self.scope.$form._clicked = true;
         }
       });
+
+      if (editableOptions.propagateElementBlur) {
+        self.inputEl.bind('blur', function(e) {
+          self.scope.$apply(function() {
+            self.scope.$form.$submit();
+          });
+        });
+      }
     };
 
     // setWaiting

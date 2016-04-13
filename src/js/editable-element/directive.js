@@ -28,15 +28,15 @@ function($parse, $compile, editableThemes, $rootScope, $document, editableContro
         // form controller
         var eFormCtrl;
 
-        // this variable indicates is element is bound to some existing form, 
+        // this variable indicates is element is bound to some existing form,
         // or it's single element who's form will be generated automatically
-        // By default consider single element without any linked form.ß
+        // By default consider single element without any linked form.
         var hasForm = false;
-     
+
         // element wrapped by form
         if(ctrl[1]) {
           eFormCtrl = ctrl[1];
-          hasForm = !$document[0].forms[0].attributes.getNamedItem('editable-form-disabled');
+          hasForm = !elem.closest('form')[0].attributes.getNamedItem('editable-form-disabled');
         } else if(attrs.eForm) { // element not wrapped by <form>, but we hane `e-form` attr
           var getter = $parse(attrs.eForm)(scope);
           if(getter) { // form exists in scope (above), e.g. editable column
